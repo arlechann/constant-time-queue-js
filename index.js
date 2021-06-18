@@ -3,4 +3,8 @@ export default class Queue {
 		this.front = [];
 		this.back = [];
 	}
+
+	isEmpty() {
+		return this.front.length == 0 && this.back.length == 0;
+	}
 }

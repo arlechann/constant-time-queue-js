@@ -10,5 +10,30 @@ describe('Queue', function() {
 			);
 		});
 	});
+
+	describe('isEmpty', function() {
+		context('when is empty', function() {
+			const queue = new Queue();
+			it('should be true', function() {
+				assert.isOk(queue.isEmpty());
+			});
+		});
+
+		context('when front has an element', function() {
+			const queue = new Queue();
+			queue.front = [0];
+			it('should be false', function() {
+				assert.isNotOk(queue.isEmpty());
+			});
+		});
+
+		context('when back has an element', function() {
+			const queue = new Queue();
+			queue.back = [0];
+			it('should be false', function() {
+				assert.isNotOk(queue.isEmpty());
+			});
+		});
+	});
 });
 
