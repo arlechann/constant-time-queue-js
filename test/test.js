@@ -72,5 +72,40 @@ describe('Queue', function() {
 			});
 		});
 	});
+
+	describe('pop', function() {
+		context('when front and back are empty', function() {
+			it('should return undefined', function() {
+				const queue = new Queue();
+				assert.isUndefined(queue.pop());
+			});
+		});
+
+		context('when front is empty and back has elements', function() {
+			it('should reverse back and swap front and back', function() {
+				const queue = new Queue();
+				queue.back = [0, 1, 2];
+				queue.pop();
+				assert.deepEqual(
+					queue,
+					{ front: [2, 1], back: [] }
+				);
+			});
+
+			it('should pop head of back', function() {
+				const queue = new Queue();
+				queue.back = [0, 1, 2];
+				assert.equal(queue.pop(), 0);
+			});
+		});
+
+		context('when front has elements and back is empty ', function() {
+			it('should pop last of front', function() {
+				const queue = new Queue();
+				queue.front = [2, 1, 0];
+				assert.equal(queue.pop(), 0);
+			});
+		});
+	});
 });
 
