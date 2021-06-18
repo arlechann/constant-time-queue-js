@@ -1,4 +1,5 @@
-import assert from 'assert';
+import { assert } from 'chai';
+import Queue from '../index.js';
 
 describe('Queue', () => {
 });
